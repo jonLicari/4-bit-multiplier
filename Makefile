@@ -18,8 +18,8 @@ LIBRARIES = -L. -L$(SYSTEMC_HOME)/$(LINUXLIB) -lsystemc -lm
 RPATH = -Wl,-rpath=$(SYSTEMC_HOME)/$(LINUXLIB)
 
 PROGRAM = mul.x
-SRCS    =  sc_main.cpp
-OBJS    =  sc_main.o
+SRCS    =  mul.cpp sc_main.cpp
+OBJS    =  mul.o sc_main.o
 
 all : $(PROGRAM)
 
