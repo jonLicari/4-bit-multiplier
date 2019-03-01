@@ -7,7 +7,25 @@ sc_bv<8> co; sc_bv<8> so; // Carry-out array and Sum-out array
 sc_bv<8> p;	// Output product
 sc_bit andgt; // stores AND gate output
 
-void csa (sc_bit a, sc_bit b, sc_bit c, sc_bit s, int indexa, int indexb) {}
+void cpa(sc_bit aval, sc_bit bval, sc_bit cval, int indexa, int indexb) {
+	
+	so[indexa] = ((aval^bval)^cval);
+	co[indexa] = (aval&bval)|(cval&(aval^bval));
+
+	if (indexa == 0) { // if the index a is 0, the product is directly equal to sum out
+		p[indexb] = so[indexa];
+		//cout << "Pout = " << p << endl;
+	}
+	// else {essentially do nothing
+}
+
+void csa (sc_bit a, sc_bit b, sc_bit c, sc_bit s, int indexa, int indexb) {
+
+	andgt = a&b; // performs A.B
+	//cout << "AND A.B = " << andgt << endl;
+	//cout << "index = " << indexa << endl;
+	cpa(andgt, s, c, indexa, indexb); // Sends the variables to the full adder function
+}
 
 void mul :: multiply() {
 	// Write in values to a and b 
