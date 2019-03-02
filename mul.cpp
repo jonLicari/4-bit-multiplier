@@ -62,5 +62,25 @@ void mul :: multiply() {
 		csa(ta, tb, cin, sin, n, m);
 		}
 	}
+	
+	// cpa (bit A, bit B, bit C, int Index#)
+	//MSB-3
+	ta = so[1]; tb = co[0]; cin = 0;
+	cpa(ta, tb, cin, 4, 0);
+	p[4] = so[4];
+	//MSB-2
+	ta = so[2]; tb = co[1]; cin = co[4];
+	cpa(ta, tb, cin, 5, 0);
+	p[5] = so[5];
+	//MSB-1
+	ta = so[3]; tb = co[2]; cin = co[5];
+	cpa(ta, tb, cin, 6, 0);
+	p[6] = so[6];
+	//MSB
+	ta = co[3]; tb = co[6]; cin = 0;
+	cpa(ta, tb, cin, 7, 0);
+	p[7] = so[7];
 
+	//cout << "\n\nProduct = " << p << endl;
+	sout.write(p);	
 }
